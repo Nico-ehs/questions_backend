@@ -11,13 +11,13 @@ User.delete_all
 Question.delete_all
 Answer.delete_all
 
-User.create(name: "user 1")
-User.create(name: "user 2")
+u1=User.create(name: "user 1")
+u2=User.create(name: "user 2")
 
-Question.create(text:'2 + 2', user_id: 1)
-Question.create(text:'US Captial', user_id: 1)
+q1=Question.create(text:'2 + 2', user_id: u1.id)
+q2=Question.create(text:'US Captial', user_id: u1.id)
 
-Answer.create(question_id: 1, text:"?", user_id: 1)
-Answer.create(question_id: 1, text:"4", user_id: 2)
-Answer.create(question_id: 2, text:"?", user_id: 1)
-Answer.create(question_id: 2, text:"DC", user_id: 2)
+Answer.create(question_id: q1.id, text:"?", user_id: u1.id)
+Answer.create(question_id: q1.id, text:"4", user_id: u2.id)
+Answer.create(question_id: q2.id, text:"?", user_id: u1.id)
+Answer.create(question_id: q2.id, text:"DC", user_id: u2.id)
